@@ -63,6 +63,7 @@ export class TableComponent implements OnDestroy, AfterViewInit{
   }
 
   showDetail(transaction:TransactionModel){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.curtainService.showCurtain({component:TransactionDetailComponent,data:transaction});
   }
 
