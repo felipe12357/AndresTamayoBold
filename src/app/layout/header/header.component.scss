@@ -1,0 +1,36 @@
+@import '../../../constants.scss';
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:1rem 4rem;
+    background: $background-gradient;
+    color:$color-white;
+
+ 
+    nav {
+        a:first-child{
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        letter-spacing: 1rem;
+        cursor:pointer;
+        flex-grow: 1;
+    }
+
+    fa-icon{
+        margin-left: .5rem;
+        cursor: pointer;
+    }
+
+    .tooltip:hover:after {
+        top: 30px;
+        left: 0px;
+    } 
+    
+}
+

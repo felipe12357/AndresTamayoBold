@@ -1,0 +1,28 @@
+
+<div class="control-container">
+    <section class="resume-container" *ngIf="cardContent$ |async as cardContent">
+        <app-card [title]="cardContent.title" [subContent]="cardContent.subContent"
+                  [mainContent]="(transactonResultAmount$ |async) |currency:'':'symbol':'1.0-0'">
+        </app-card>
+    </section>
+
+    <section class="filters-container" *ngIf="(fiterByTime$ | async) as filterTimeValue">
+        <div class="buttons-container">
+            <button [ngClass]="{'active':filterTimeValue === transactionXTimeFilterEnum.TODAY}" 
+                (click)="setFilter(transactionXTimeFilterEnum.TODAY)">Hoy</button>
+            <button [ngClass]="{'active':filterTimeValue === transactionXTimeFilterEnum.WEEK}" 
+                (click)="setFilter(transactionXTimeFilterEnum.WEEK)">Esta Semana</button>
+            <button [ngClass]="{'active':filterTimeValue === transactionXTimeFilterEnum.MONTH}" 
+                (click)="setFilter(transactionXTimeFilterEnum.MONTH)">{{currentMonth}}</button>
+        </div>
+        <div class="custom-filters">
+            <button (click)="showFilters(true)" *ngIf="!showFiltersState"  > 
+                Filtrar <fa-icon [icon]="faSlidersIcon" ></fa-icon>
+            </button>
+            <app-custom-filter [ngClass]="showFiltersState ? 'transition-animation-visible' :'transition-animation-hidden' " 
+                (closeEvent)="showFilters(false)" ></app-custom-filter>
+        </div>
+    </section>
+</div>
+
+<app-table></app-table>

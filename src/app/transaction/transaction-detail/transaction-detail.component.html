@@ -1,0 +1,34 @@
+<header>
+    <div *ngIf="data.status === statusEnum.REJECTED">
+        <fa-icon   [icon]="faXmarkCircleIcon" class="x-icon" ></fa-icon>
+        <h2>¡{{TRANSACTION_REJECTED_MESSAGE}}!</h2>
+    </div>
+    <div *ngIf="data.status === statusEnum.SUCCESSFULL">
+        <fa-icon   [icon]="faCheckCircleIcon" class="check-icon"></fa-icon>
+        <h2>¡{{TRANSACTION_SUCCESS_MESSAGE}}!</h2>
+    </div>
+    <p>  {{data.amount |currency:'':'symbol':'1.0-0' }} </p>
+    <p>{{data.createdAt | date:'dd/MM/YYYY - HH:mm:ss '}}</p>    
+</header>
+<main>
+    <label>ID transacción Bold</label>
+    <span>{{data.id}}</span>
+    <label>Deducción Bold</label>
+    <span class="deduction">{{(data.deduction |currency:'':'symbol':'1.0-0') ??  '$ 0' }}</span>
+    <div class="divisor"><hr></div>
+    <label>Método de pago</label>
+    <span class="margin-label" *ngIf="data.paymentMethod !== paymentMethodEnum.CARD">
+        <fa-icon  [icon]="faBankIcon"></fa-icon> 
+        {{data.paymentMethod}}
+    </span>
+    <span class="margin-label" *ngIf="data.paymentMethod === paymentMethodEnum.CARD"> 
+        <fa-icon  [icon]="faCreditCardIcon"></fa-icon>
+         **** {{data.transactionReference}}
+    </span>
+    <label>Tipo de pago</label>
+    <span>
+        <fa-icon *ngIf="data.salesType === salesTypeEnum.PAYMENT_LINK" [icon]="faLinkIcon"></fa-icon>
+        <fa-icon *ngIf="data.salesType === salesTypeEnum.TERMINAL" [icon]="faMobileIcon"></fa-icon>
+        {{salesTypeLabel | firstUppercase}}
+    </span>
+</main>

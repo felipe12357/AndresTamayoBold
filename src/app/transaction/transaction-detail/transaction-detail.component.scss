@@ -1,0 +1,70 @@
+@import '../../../constants.scss';
+:host{
+    font-size: .9rem;
+    header {
+        text-align: center;
+        display: block;
+        margin-top: 2rem;
+        color: $color-dark-grey;
+
+
+        h2 {
+            color:$color-black;
+            margin: .5rem;
+            font-size: 1rem;
+        }
+
+        p:first-of-type{
+            color: $color-blue;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+       
+        >div *{
+            text-align: center;
+            display: block;
+        }
+    }
+    fa-icon {
+        font-size: 2rem;
+    }
+
+    .check-icon {
+        color:$color-green
+    }
+
+    .x-icon {
+        color:$color-red
+    }
+
+    main {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        column-gap: 3rem;
+        row-gap: 1rem;
+
+        fa-icon {
+            font-size: 1rem;
+            color:$color-blue;
+            margin-right: .5rem;
+        }
+
+        .divisor {
+            grid-column: 1/span 2;
+        }
+        label{
+            text-align: left;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        .deduction{
+            color:$color-red;
+        }
+
+    }
+}

@@ -1,0 +1,51 @@
+
+
+<section >
+    <header> {{tableTitle$ |async}} </header>
+    <div class="input-container">
+        <input type="text" placeholder="Buscar" #inputToHandle [(ngModel)]="searchValue">
+        <fa-icon class="input-icon" [icon]="faSearchIcon"></fa-icon> 
+    </div>
+
+    <table>
+        <thead><tr>
+            <th>Transacción</th>
+            <th>Fecha y Hora</th>
+            <th>Método de pago</th>
+            <th>ID transacción Bold</th>
+            <th>Monto</th>
+        </tr></thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactionFiltered$ | async; trackBy: trackById; let i=index"
+                (click) = 'showDetail(transaction)'
+                [ngClass]="{'custom-alignment':transaction.deduction }"
+            >
+            <td [ngClass]="(i%2==0) ? 'border-blue' :'border-grey'">
+                <fa-icon *ngIf="transaction.salesType === salesTypeEnum.PAYMENT_LINK" [icon]="faLinkIcon"></fa-icon>
+                <fa-icon *ngIf="transaction.salesType === salesTypeEnum.TERMINAL" [icon]="faMobileIcon"></fa-icon>
+                    <span class="margin-label"> {{ transaction.status | transactionState }} </span>
+            </td>
+            <td> {{transaction.createdAt | date:'dd/MM/YYYY - HH:mm:ss '}} </td>
+            <td> 
+                <fa-icon *ngIf="transaction.paymentMethod !== paymentMethodEnum.CARD" [icon]="faBankIcon"></fa-icon> 
+                <fa-icon *ngIf="transaction.paymentMethod === paymentMethodEnum.CARD" [icon]="faCreditCardIcon"></fa-icon> 
+                <span class="margin-label" *ngIf="!transaction.franchise">
+                    {{transaction.paymentMethod}}
+                </span>
+                <span class="margin-label" *ngIf="transaction.franchise"> 
+                    {{transaction.franchise}}  **** {{transaction.transactionReference}}
+                </span>
+            </td>
+            <td> {{transaction.id}} </td>
+            <td class="mount-cell"> 
+                {{transaction.amount |currency:'':'symbol':'1.0-0' }} 
+                <div *ngIf="transaction.deduction">
+                    <div>Deducción Bold</div>
+                    <div>- {{transaction.deduction |currency:'':'symbol':'1.0-0' }} </div>
+                </div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+

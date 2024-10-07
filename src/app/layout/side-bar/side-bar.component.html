@@ -1,0 +1,6 @@
+<div class="curtain"></div>
+<aside>
+    <fa-icon [icon]="faXIcon" (click)="close()"></fa-icon>
+    <ng-template appDinamicContent [componentToDisplay]="(curtainComponent$ |async)"></ng-template>
+</aside>
+

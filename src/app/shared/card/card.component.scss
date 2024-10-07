@@ -1,0 +1,46 @@
+@import '../../../constants.scss';
+:host{
+
+    display: block;
+    background-color:$color-pure-white;
+    border-radius: 5px;
+    border: 1px solid $color-light-grey;
+   
+    header {
+        padding:1rem;
+        color:$color-white;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: $background-gradient;
+        display: flex;
+        justify-content: space-between;
+
+        fa-icon {
+            cursor: pointer;
+        }
+    }
+
+    .tooltip:hover:after {
+        top: 30px;
+        left: -10px;
+    } 
+    
+
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h2{
+            background-image: linear-gradient(to right, $color-blue, $color-red);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0;
+
+            &:first-letter {
+                margin-right: .5rem
+            }
+        }
+       
+    }
+}

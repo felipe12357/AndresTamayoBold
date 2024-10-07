@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CurtainService } from './layout/curtain.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'bold_test2';
+  title = 'bold_test';
+
+  private curtainService = inject(CurtainService);
+
+  curtainComponent$ = this.curtainService.curtainState$
 }

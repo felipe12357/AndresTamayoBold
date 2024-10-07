@@ -1,0 +1,10 @@
+
+<header>
+   <h3>Filtrar</h3>
+   <fa-icon [icon]="faXIcon" (click)="close()"></fa-icon>
+</header>
+ <div *ngFor="let item of paymentTypes">
+   <input type="checkbox" [checked]="(selectedTypes$ |async)?.includes(item.value)" (change)="setSelectedTypes(item.value,$event)" > 
+   {{item.label}}
+ </div>
+ <button (click)="setFilter()">Aplicar</button>
