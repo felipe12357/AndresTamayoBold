@@ -4,13 +4,20 @@ import { transactionFilterByTimeEnum } from '../../utils/enumtypes';
 import { map } from 'rxjs';
 import { monthNameList } from '../../utils/getMonthName';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
+import { NgIf, NgClass, AsyncPipe, CurrencyPipe } from '@angular/common';
+import { CardComponent } from '../../shared/card/card.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { CustomFilterComponent } from '../custom-filter/custom-filter.component';
+import { TableComponent } from '../table/table.component';
 
 
 @Component({
-  selector: 'app-transaction',
-  templateUrl: './transaction.component.html',
-  styleUrl: './transaction.component.scss',
-  changeDetection:ChangeDetectionStrategy.OnPush
+    selector: 'app-transaction',
+    templateUrl: './transaction.component.html',
+    styleUrl: './transaction.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, CardComponent, NgClass, FaIconComponent, CustomFilterComponent, TableComponent, AsyncPipe, CurrencyPipe]
 })
 export class TransactionComponent {
 

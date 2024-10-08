@@ -14,12 +14,11 @@ describe('SideBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[FontAwesomeModule,],
-      declarations: [SideBarComponent,DinamicContentDirective],
-      providers:[
+    imports: [FontAwesomeModule, SideBarComponent, DinamicContentDirective,],
+    providers: [
         { provide: CurtainService, useValue: curtainServiceSpy }
-      ]
-    })
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SideBarComponent);

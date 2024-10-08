@@ -7,11 +7,17 @@ import { debounceTime, distinctUntilChanged, fromEvent, map, Observable, Subscri
 import { monthNameList } from '../../utils/getMonthName';
 import { CurtainService } from '../../layout/curtain.service';
 import { TransactionDetailComponent } from '../transaction-detail/transaction-detail.component';
+import { FormsModule } from '@angular/forms';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NgFor, NgClass, NgIf, AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { TransactionStatePipe } from '../../pipes/transaction-state.pipe';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss',
+    standalone: true,
+    imports: [FormsModule, FaIconComponent, NgFor, NgClass, NgIf, AsyncPipe, CurrencyPipe, DatePipe, TransactionStatePipe]
 })
 export class TableComponent implements OnDestroy, AfterViewInit{
 

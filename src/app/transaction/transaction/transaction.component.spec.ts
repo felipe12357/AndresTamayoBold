@@ -76,7 +76,7 @@ describe('TransactionComponent', () => {
   let mockTransactionFilteredSubject = new BehaviorSubject<TransactionModel[]>(mockTransactions);
   let mockfilterByTimeSubject = new BehaviorSubject<transactionFilterByTimeEnum>(transactionFilterByTimeEnum.MONTH);
   const transactionServiceSpy = jasmine.createSpyObj('TransactionService',
-     ['updateFilterByTime','getFilterByTimeTypeSubjectValue','getFilterByText']);
+     ['updateFilterByTime','getFilterByTimeTypeSubjectValue','getFilterByText','getFilterBySalesTypeSubjectValue']);
 
 
   transactionServiceSpy.transactionFiltered$ =mockTransactionFilteredSubject.asObservable();
@@ -84,12 +84,11 @@ describe('TransactionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[FontAwesomeModule,CardComponent,FormsModule,TransactionStatePipe],
-      declarations: [TransactionComponent,TableComponent],
-      providers:[
+    imports: [FontAwesomeModule, CardComponent, FormsModule, TransactionStatePipe, TransactionComponent, TableComponent],
+    providers: [
         { provide: TransactionService, useValue: transactionServiceSpy },
-      ]
-    })
+    ]
+})
     .compileComponents();
     fixture = TestBed.createComponent(TransactionComponent);
     component = fixture.componentInstance;

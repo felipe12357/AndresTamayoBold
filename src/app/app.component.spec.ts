@@ -7,15 +7,12 @@ import { HeaderComponent } from './layout/header/header.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterModule.forRoot([]),
-        HeaderComponent
-      ],
-      declarations: [
-        AppComponent,
-        
-      ],
-    }).compileComponents();
+        HeaderComponent,
+        AppComponent
+    ],
+}).compileComponents();
   });
 
   it('should create the app', () => {

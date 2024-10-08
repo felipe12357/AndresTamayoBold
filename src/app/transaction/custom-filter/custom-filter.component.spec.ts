@@ -12,13 +12,11 @@ describe('CustomFilterComponent', () => {
     ['updateFilterByTime','getFilterByTimeTypeSubjectValue','getFilterByText','getFilterBySalesTypeSubjectValue','updateFilterBySaleType']);
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[FontAwesomeModule],
-      declarations: [CustomFilterComponent],
-      providers:[
+    imports: [FontAwesomeModule, CustomFilterComponent],
+    providers: [
         { provide: TransactionService, useValue: transactionServiceSpy },
-      ]
-      
-    })
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(CustomFilterComponent);

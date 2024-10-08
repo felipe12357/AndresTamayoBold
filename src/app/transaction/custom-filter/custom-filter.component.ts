@@ -2,12 +2,16 @@ import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output } from
 import { transactionFilterBySalesEnum } from '../../utils/enumtypes';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { TransactionService } from '../transaction.service';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-custom-filter',
-  templateUrl: './custom-filter.component.html',
-  styleUrl: './custom-filter.component.scss',
-  changeDetection:ChangeDetectionStrategy.OnPush
+    selector: 'app-custom-filter',
+    templateUrl: './custom-filter.component.html',
+    styleUrl: './custom-filter.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [FaIconComponent, NgFor, AsyncPipe]
 })
 export class CustomFilterComponent {
 

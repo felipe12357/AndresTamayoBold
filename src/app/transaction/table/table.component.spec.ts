@@ -2,7 +2,6 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 
 import { TableComponent } from './table.component';
 import { TransactionService } from '../transaction.service';
-import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { TransactionModel } from '../transactionTypes';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -29,13 +28,12 @@ describe('TableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[FontAwesomeModule,FormsModule],
-      declarations: [TableComponent],
-      providers:[
+    imports: [FontAwesomeModule, FormsModule, TableComponent],
+    providers: [
         { provide: TransactionService, useValue: transactionServiceSpy },
         { provide: CurtainService, useValue: curtainServiceSpy }
-      ]
-    })
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TableComponent);

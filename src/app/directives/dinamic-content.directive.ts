@@ -2,7 +2,8 @@ import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { dinamicType } from './dinamicType';
 
 @Directive({
-  selector: '[appDinamicContent]'
+    selector: '[appDinamicContent]',
+    standalone: true
 })
 export class DinamicContentDirective implements OnInit {
   @Input() componentToDisplay!:dinamicType |null;
