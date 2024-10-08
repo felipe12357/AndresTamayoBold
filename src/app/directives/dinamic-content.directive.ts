@@ -1,6 +1,5 @@
 import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { dinamicType } from './dinamicType';
-import { TransactionDetailComponent } from '../transaction/transaction-detail/transaction-detail.component';
 
 @Directive({
   selector: '[appDinamicContent]'

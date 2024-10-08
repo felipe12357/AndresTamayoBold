@@ -4,9 +4,6 @@
     npm install
     ng server
 
-## URL Proyecto en la nube
-    https://andres-tamayo-bold-njkc0qxl2-felipe12357s-projects.vercel.app/transactions
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

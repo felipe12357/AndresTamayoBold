@@ -1,5 +1,5 @@
 export enum transationStateEnum  {
-    SUCCESSFULL='SUCCESSFULL',
+    SUCCESSFULL='SUCCESSFUL',
     REJECTED='REJECTED',
 }
 

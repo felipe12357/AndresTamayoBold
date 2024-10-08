@@ -32,7 +32,7 @@ export class TransactionDetailComponent {
   TRANSACTION_REJECTED_MESSAGE = TRANSACTION_REJECTED_MESSAGE;
   TRANSACTION_SUCCESS_MESSAGE = TRANSACTION_SUCCESS_MESSAGE;
 
-  @Input() data!: TransactionModel;
+  @Input() data?: TransactionModel;
   salesTypeLabel:string ='';
 
  

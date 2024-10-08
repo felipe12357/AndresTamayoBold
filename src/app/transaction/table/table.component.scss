@@ -9,33 +9,41 @@ section {
     border:1px solid $color-light-grey;
     background-color: $color-pure-white;
     font-size: .9rem;
+    overflow-y: scroll;
+    max-height: 59vh;
 
     >* {
         flex: 1 0 100%;
         box-sizing: border-box;
     }
 
-    .input-container {
-        position: relative;
-    
+    .input-sticky{
+        position: sticky;
+        top:3rem;
 
-        input {
-            box-sizing: border-box;
-            padding:1rem;
-            padding-left: 3rem; 
-            width: 100%;
-            font-size: 1rem;
-        }
-          
-        .input-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none; 
-        }
-    }
+        .input-container {
+            position: relative;
+        
     
+            input {
+                box-sizing: border-box;
+                padding:1rem;
+                padding-left: 3rem; 
+                width: 100%;
+                font-size: 1rem;
+            }
+              
+            .input-icon {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none; 
+            }
+        }
+
+    }
+
     header {
         padding:1rem;
         background: $background-gradient;
@@ -43,6 +51,9 @@ section {
         border-top-left-radius: 5px;
         color:$color-white;
         font-size: 1rem;
+        position: sticky;
+        top:0;
+        background-color: white;
     }
 
     .border-blue {
@@ -69,6 +80,12 @@ section {
         fa-icon{
             color:$color-blue;
             display: none;
+        }
+
+        thead {
+            position: sticky;
+            top:6rem;
+            background-color: $color-pure-white;
         }
         
         th:nth-child(4), td:nth-child(4), th:nth-child(3), td:nth-child(3) {

@@ -6,6 +6,7 @@ aside {
     right: 0;
     background-color: $color-pure-white;
     height: 100%;
+    box-sizing: border-box;
     z-index: 3;
     border-top-left-radius: 5px;
 
